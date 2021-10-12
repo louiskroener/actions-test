@@ -13,7 +13,7 @@ jobs:
         run: |
           echo ${{ github.ref }}
           echo ${{ github.event_name }}
-          echo ${{ github.head_ref }}
+          echo ${{ github.workflow_run.event }}
       - name: pr shit
         if:  ${{ github.workflow_run.event == 'pull_request' }} 
         run: |
