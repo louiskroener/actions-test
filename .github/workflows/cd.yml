@@ -14,7 +14,6 @@ jobs:
           echo ${{ github.ref }}
           echo ${{ github.event_name }}
           echo ${{ github.head_ref }}
-          ${{ github.ref }}
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
