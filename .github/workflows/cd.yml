@@ -14,6 +14,11 @@ jobs:
           echo ${{ github.ref }}
           echo ${{ github.event_name }}
           echo ${{ github.head_ref }}
+      - name: pr shit
+        if:  ${{ github.workflow_run.event == 'pull_request' }} 
+        run: |
+          echo ${{ github.workflow_run.pull_requests }}
+          echo ${{ github.workflow_run.pull_requests.number }}
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
