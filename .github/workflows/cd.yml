@@ -12,6 +12,7 @@ jobs:
       - name: build and shit
         run: |
           echo ${{ github.ref }}
+          echo ${{ github.sha }}
           echo ${{ github.event_name }}
           echo ${{ github.event.workflow_run.event }}
       - name: pr shit
