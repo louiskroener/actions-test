@@ -11,4 +11,4 @@ jobs:
     steps:
       - name: build and shit
         run: |
-          echo ${{ gihub.ref }}
+          echo ${{ github.ref }}
