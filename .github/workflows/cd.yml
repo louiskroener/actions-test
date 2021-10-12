@@ -18,8 +18,8 @@ jobs:
         if:  ${{ github.event.workflow_run.event == 'pull_request' }} 
         run: |
           echo ${{ github.event.workflow_run.pull_requests }}
-          echo ${{ github.event.workflow_run.pull_requests[1] }}
-          echo ${{ github.event.workflow_run.pull_requests[1].number }}
+          echo ${{ github.event.workflow_run.pull_requests[0] }}
+          echo ${{ github.event.workflow_run.pull_requests[0].number }}
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
