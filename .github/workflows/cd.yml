@@ -13,12 +13,12 @@ jobs:
         run: |
           echo ${{ github.ref }}
           echo ${{ github.event_name }}
-          echo ${{ github.workflow_run.event }}
+          echo ${{ github.event.workflow_run.event }}
       - name: pr shit
-        if:  ${{ github.workflow_run.event == 'pull_request' }} 
+        if:  ${{ github.event.workflow_run.event == 'pull_request' }} 
         run: |
-          echo ${{ github.workflow_run.pull_requests }}
-          echo ${{ github.workflow_run.pull_requests.number }}
+          echo ${{ github.event.workflow_run.pull_requests }}
+          echo ${{ github.event.workflow_run.pull_requests.number }}
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
