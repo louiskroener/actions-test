@@ -1,0 +1,14 @@
+name: cd
+
+on:
+  workflow_run:
+    workflows: ["ci"]
+      - completed
+jobs:
+  on-success:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: build and shit
+        run: |
+          echo ${{ gihub.ref }}
