@@ -1,0 +1,29 @@
+name: test
+on: workflow_dispatch
+
+jobs:
+   deploy-pr:
+    name: Deploy Feature Branch
+    steps:
+      - name: generate values-dev.yaml
+        run: |
+          PR_NUMBER=3
+          cat > values-dev.yaml << EOF
+          hostname: $PR_NUMBER.scrumlr.fra.ics.inovex.io
+          cert:
+            enabled: true
+            name: scrumlr-cert-$PR_NUMBER
+          frontend:
+            image: registry.kube.com/scrumlr-frontend:$PR_NUMBER
+            imagePullPolicy: Always
+          livequery:
+            image: registry.kube.com/scrumlr-server:$PR_NUMBER
+            imagePullPolicy: Always
+          server:
+            image: registry.kube.com/scrumlr-server:$PR_NUMBER
+            imagePullPolicy: Always
+          dashboard:
+            image: registry.kube.com/scrumlr-dashboard:$PR_NUMBER
+            imagePullPolicy: Always
+          EOF
+          cat values-dev.yaml
