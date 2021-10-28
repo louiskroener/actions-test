@@ -4,6 +4,7 @@ on: workflow_dispatch
 jobs:
    deploy-pr:
     name: Deploy Feature Branch
+    runs-on: ubuntu-latest
     steps:
       - name: generate values-dev.yaml
         run: |
