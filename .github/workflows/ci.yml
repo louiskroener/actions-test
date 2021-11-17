@@ -18,6 +18,5 @@ jobs:
           echo ${{ github.event.label.name }}
       - name: Dump GitHub ontext
         env:
-          GITHUB_CONTEXT: ${{ 
-(github) }}
+          GITHUB_CONTEXT: ${{ (github) }}
         run: echo "$GITHUB_CONTEXT"
