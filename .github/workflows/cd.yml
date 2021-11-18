@@ -4,6 +4,8 @@ on:
   workflow_run:
     workflows: ["ci"]
     types: [completed]
+  label:
+    - created 
 jobs:
   on-success:
     runs-on: ubuntu-latest
