@@ -16,6 +16,8 @@ jobs:
           echo ${{ github.ref }}
           echo ${{ github.sha }}
           echo ${{ github.event.label.name }}
+          PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
+          echo $PR_NUMBER
       - name: Dump GitHub ontext
         env:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
