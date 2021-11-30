@@ -11,6 +11,10 @@ jobs:
     name: build
     runs-on: ubuntu-latest
     steps:
+      - name: test
+        continue-on-error: true
+        run: |
+          echo hello | grep no 
       - name: to stuff
         run: |
           echo ${{ github.ref }}
@@ -18,7 +22,6 @@ jobs:
           echo ${{ github.event.label.name }}
           PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
           echo $PR_NUMBER
-          echo hello | grep no
           echo world
       - name: Dump GitHub ontext
         env:
